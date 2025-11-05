@@ -2,7 +2,7 @@
 using FastMenu.Domain.Dtos.Response;
 using FastMenu.Domain.Entities;
 
-namespace FastMenu.Infrastructure.Mappers
+namespace FastMenu.Application.Mappers
 {
     public static class FoodMapper
     {

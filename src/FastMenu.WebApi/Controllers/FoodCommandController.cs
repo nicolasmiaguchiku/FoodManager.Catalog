@@ -1,4 +1,4 @@
-﻿using FastMenu.Application.Handlers.Commands;
+﻿using FastMenu.Application.Input.Handlers.Commands;
 using FastMenu.Domain.Dtos.Requests;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.Mvc;

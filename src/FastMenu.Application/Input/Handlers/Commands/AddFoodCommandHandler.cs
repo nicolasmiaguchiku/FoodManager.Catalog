@@ -3,18 +3,21 @@ using LiteBus.Commands.Abstractions;
 using FastMenu.Domain.Results;
 using FastMenu.Domain.Dtos.Response;
 using FastMenu.Domain.Services;
+using FastMenu.Application.Mappers;
 
-namespace FastMenu.Application.Handlers.Commands
+namespace FastMenu.Application.Input.Handlers.Commands
 {
     public  class AddFoodCommandHandler(IFoodRepository foodRepository, ICacheService _cache) : ICommandHandler<AddFoodCommand, Result<FoodResponse>>
     {
         public async Task<Result<FoodResponse>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {
-            var food = await foodRepository.AddFoodAsync(request.FoodRequest, cancellationToken);
+            var result = request.FoodRequest.ToEntity();
 
-            await _cache.SetCacheValueAsync("Foods", food, TimeSpan.FromDays(7));
+            await foodRepository.AddAsync(result, cancellationToken);
 
-            return Result<FoodResponse>.Success(food.Data);
+            await _cache.SetCacheValueAsync("Foods", result.ToResponse(), TimeSpan.FromDays(7));
+
+            return Result<FoodResponse>.Success(result.ToResponse());
         }
     }
 }

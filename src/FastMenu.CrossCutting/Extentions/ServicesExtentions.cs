@@ -6,14 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace FastMenu.CrossCutting.Extentions
 {
-   public static class ServicesExtentions
-   {
-      public static IServiceCollection AddServices(this IServiceCollection services)
-      {
-         services.AddScoped<IFoodRepository, FoodRepository>();
-         services.AddScoped<ICacheService, MemoryCacheService>();
+    public static class ServicesExtentions
+    {
+        public static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IFoodRepository, FoodRepository>();
+            services.AddScoped<ICacheService, MemoryCacheService>();
 
-         return services;
-      }
-   }
+            return services;
+        }
+    }
 }
