@@ -1,9 +1,9 @@
-﻿using FastMenu.Application.Handlers.Commands;
-using FastMenu.Application.Handlers.Queries;
-using LiteBus.Commands.Extensions.MicrosoftDependencyInjection;
+﻿using LiteBus.Commands.Extensions.MicrosoftDependencyInjection;
 using LiteBus.Queries.Extensions.MicrosoftDependencyInjection;
 using LiteBus.Messaging.Extensions.MicrosoftDependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using FastMenu.Application.Output.Queries;
+using FastMenu.Application.Input.Handlers.Commands;
 
 namespace FastMenu.CrossCutting.Extentions
 {
@@ -18,10 +18,10 @@ namespace FastMenu.CrossCutting.Extentions
                     module.RegisterFromAssembly(typeof(AddFoodCommandHandler).Assembly);
                 });
 
-               litebus.AddQueryModule(module =>
-               {
-                   module.RegisterFromAssembly(typeof(GetFoodQueryHandler).Assembly);
-               });
+                litebus.AddQueryModule(module =>
+                {
+                    module.RegisterFromAssembly(typeof(GetFoodQueryHandler).Assembly);
+                });
             });
 
             return services;

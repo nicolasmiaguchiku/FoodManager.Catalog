@@ -1,6 +1,6 @@
 ﻿using LiteBus.Queries.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using FastMenu.Application.Handlers.Queries;
+using FastMenu.Application.Output.Queries;
 
 namespace FastMenu.WebApi.Controllers
 {

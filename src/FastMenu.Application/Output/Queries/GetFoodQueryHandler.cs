@@ -3,12 +3,13 @@ using FastMenu.Domain.Results;
 using LiteBus.Queries.Abstractions;
 using FastMenu.Domain.Dtos.Response;
 using FastMenu.Domain.Services;
+using FastMenu.Application.Mappers;
 
-namespace FastMenu.Application.Handlers.Queries
+namespace FastMenu.Application.Output.Queries
 {
     public class GetFoodQueryHandler(
        IFoodRepository foodRepository,
-       ICacheService cacheService): IQueryHandler<GetFoodQuery, Result<IEnumerable<FoodResponse>>>
+       ICacheService cacheService) : IQueryHandler<GetFoodQuery, Result<IEnumerable<FoodResponse>>>
     {
         public async Task<Result<IEnumerable<FoodResponse>>> HandleAsync(GetFoodQuery request, CancellationToken cancellationToken)
         {
@@ -16,11 +17,13 @@ namespace FastMenu.Application.Handlers.Queries
 
             if (cached is null || !cached.Any())
             {
-                var response = await foodRepository.GetFoodAlldAsync(cancellationToken);
+                var response = await foodRepository.GetAllAsync(cancellationToken);
 
-                await cacheService.SetCacheValueAsync("Foods", response.Data, TimeSpan.FromDays(7));
+                var result = response.Select(x => x.ToResponse());
 
-                return Result<IEnumerable<FoodResponse>>.Success(response.Data);
+                await cacheService.SetCacheValueAsync("Foods", result, TimeSpan.FromDays(7));
+
+                return Result<IEnumerable<FoodResponse>>.Success(result);
             }
 
             return Result<IEnumerable<FoodResponse>>.Success(cached);
