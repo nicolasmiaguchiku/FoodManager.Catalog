@@ -1,6 +1,5 @@
 ﻿using FoodManager.Domain.Interfaces;
 using MongoDB.Driver;
-using System.Linq.Expressions;
 
 namespace FoodManager.Infrastructure.Persistence.Repositories
 {

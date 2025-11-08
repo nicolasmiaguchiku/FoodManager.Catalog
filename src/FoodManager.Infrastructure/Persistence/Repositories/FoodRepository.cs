@@ -1,5 +1,4 @@
-﻿using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Entities;
+﻿using FoodManager.Domain.Entities;
 using FoodManager.Domain.Filters;
 using FoodManager.Domain.Interfaces;
 using FoodManager.Infrastructure.Stages;

@@ -1,5 +1,5 @@
 ﻿using FoodManager.Application.Input.Handlers.Commands;
-using FoodManager.Domain.Dtos.Requests;
+using FoodManager.Application.Input.Requests;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 

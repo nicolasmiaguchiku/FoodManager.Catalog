@@ -1,5 +1,5 @@
-﻿using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Dtos.Requests;
+﻿using FoodManager.Application.Input.Requests;
+using FoodManager.Application.Output.Response;
 using FoodManager.Domain.Entities;
 using FoodManager.Domain.Filters;
 
