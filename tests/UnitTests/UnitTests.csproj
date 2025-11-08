@@ -19,7 +19,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\FoodManager.Application\FoodManager.Application.csproj" />
+    <ProjectReference Include="..\..\src\FoodManager.CrossCutting\FoodManager.CrossCutting.csproj" />
+    <ProjectReference Include="..\..\src\FoodManager.Domain\FoodManager.Domain.csproj" />
+    <ProjectReference Include="..\..\src\FoodManager.Infrastructure\FoodManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\FoodManager.WebApi\FoodManager.WebApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>
