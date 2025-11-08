@@ -2,7 +2,7 @@
 
 namespace FoodManager.Application.Input.Requests
 {
-   public sealed record FoodRequest
+   public sealed record AddFoodRequest
    (
        string Name,
        decimal Price,

@@ -7,7 +7,7 @@ namespace FoodManager.Application.Mappers
 {
     public static class FoodMapper
     {
-        public static FoodEntity ToEntity(this FoodRequest food)
+        public static FoodEntity ToEntity(this AddFoodRequest food)
         {
             return new FoodEntity
             {

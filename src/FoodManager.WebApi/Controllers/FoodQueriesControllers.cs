@@ -1,7 +1,6 @@
 ﻿using LiteBus.Queries.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using FoodManager.Application.Output.Queries;
-using FoodManager.Infrastructure.Stages;
 using FoodManager.Application.Input.Requests;
 
 namespace FoodManager.WebApi.Controllers

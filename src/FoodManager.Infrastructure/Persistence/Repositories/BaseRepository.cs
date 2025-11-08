@@ -1,5 +1,6 @@
 ﻿using FoodManager.Domain.Interfaces;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace FoodManager.Infrastructure.Persistence.Repositories
 {
@@ -10,6 +11,13 @@ namespace FoodManager.Infrastructure.Persistence.Repositories
         public async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
         {
              await _collection.InsertOneAsync(entity, cancellationToken: cancellationToken);
+        }
+
+        public async Task<long> DeleteAsync(Expression<Func<TEntity, bool>> filterExpression, CancellationToken cancellationToken)
+        {
+            var result = await _collection.DeleteOneAsync(filterExpression, cancellationToken: cancellationToken);
+
+            return result.DeletedCount;
         }
     }
 }
