@@ -1,7 +1,7 @@
-﻿using FoodManager.Domain.Entities;
-using FoodManager.Domain.Filters;
+﻿using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Filters;
 
-namespace FoodManager.Domain.Interfaces.Repositories;
+namespace FoodManager.Catalog.Domain.Interfaces.Repositories;
 
 public interface IFoodRepository : IBaseRepository<FoodEntity>
 {

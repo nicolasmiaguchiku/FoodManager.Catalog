@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FoodManager.Domain.Enums
+namespace FoodManager.Catalog.Domain.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Category

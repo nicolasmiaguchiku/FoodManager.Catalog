@@ -1,10 +1,10 @@
-﻿using FoodManager.Infrastructure.Persistence.Repositories;
+﻿using FoodManager.Catalog.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using FoodManager.Domain.Interfaces.Services;
-using FoodManager.Domain.Interfaces.Repositories;
-using FoodManager.Infrastructure.Persistence.Services;
+using FoodManager.Catalog.Domain.Interfaces.Services;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Infrastructure.Persistence.Services;
 
-namespace FoodManager.CrossCutting.Extentions
+namespace FoodManager.Catalog.CrossCutting.Extentions
 {
     public static class ServicesExtentions
     {

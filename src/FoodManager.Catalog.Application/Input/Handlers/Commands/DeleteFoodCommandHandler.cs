@@ -1,7 +1,7 @@
-﻿using FoodManager.Domain.Interfaces.Repositories;
+﻿using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using LiteBus.Commands.Abstractions;
 
-namespace FoodManager.Application.Input.Handlers.Commands
+namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
     public sealed class DeleteFoodCommandHandler(IFoodRepository _repository) : ICommandHandler<DeleteFoodCommand>
     {

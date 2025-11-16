@@ -1,6 +1,6 @@
-﻿using FoodManager.Domain.Results;
+﻿using FoodManager.Catalog.Catalog.Domain.Results;
 
-namespace FoodManager.Domain.Errors
+namespace FoodManager.Catalog.Domain.Errors
 {
     public static class FoodErrors
     {

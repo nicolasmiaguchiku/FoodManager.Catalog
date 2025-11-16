@@ -1,9 +1,9 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using FoodManager.Application.Input.Handlers.Commands;
-using FoodManager.Domain.Entities;
-using FoodManager.Domain.Interfaces.Repositories;
-using FoodManager.Domain.Interfaces.Services;
+using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Domain.Interfaces.Services;
 using Moq;
 
 namespace UnitTests.Commands

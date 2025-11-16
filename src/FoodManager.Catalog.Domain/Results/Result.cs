@@ -1,4 +1,4 @@
-﻿namespace FoodManager.Domain.Results
+﻿namespace FoodManager.Catalog.Catalog.Domain.Results
 {
     public class Result
     {

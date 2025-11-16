@@ -1,7 +1,7 @@
-﻿using FoodManager.Domain.Interfaces.Services;
+﻿using FoodManager.Catalog.Domain.Interfaces.Services;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace FoodManager.Infrastructure.Persistence.Services
+namespace FoodManager.Catalog.Infrastructure.Persistence.Services
 {
     public class MemoryCacheService(IMemoryCache _cache) : ICacheService
     {

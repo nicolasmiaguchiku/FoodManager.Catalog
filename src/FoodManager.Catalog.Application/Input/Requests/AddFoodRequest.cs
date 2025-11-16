@@ -1,6 +1,6 @@
-﻿using FoodManager.Domain.Enums;
+﻿using FoodManager.Catalog.Domain.Enums;
 
-namespace FoodManager.Application.Input.Requests
+namespace FoodManager.Catalog.Application.Input.Requests
 {
    public sealed record AddFoodRequest
    (

@@ -1,9 +1,9 @@
-﻿using FoodManager.Domain.Entities;
-using FoodManager.Domain.Filters;
+﻿using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Filters;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace FoodManager.Infrastructure.Stages
+namespace FoodManager.Catalog.Infrastructure.Stages
 {
     public static class FoodFiltersBuilderStage
     {

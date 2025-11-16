@@ -1,4 +1,4 @@
-using FoodManager.CrossCutting.Extentions;
+using FoodManager.Catalog.CrossCutting.Extentions;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

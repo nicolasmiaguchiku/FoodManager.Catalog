@@ -1,6 +1,6 @@
-@FoodManager.Api_HostAddress = http://localhost:5014
+@FoodManager.Catalog.Api_HostAddress = http://localhost:5014
 
-GET {{FoodManager.Api_HostAddress}}/weatherforecast/
+GET {{FoodManager.Catalog.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

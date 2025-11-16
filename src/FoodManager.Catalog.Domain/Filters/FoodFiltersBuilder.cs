@@ -1,6 +1,6 @@
-﻿using FoodManager.Domain.Enums;
+﻿using FoodManager.Catalog.Domain.Enums;
 
-namespace FoodManager.Domain.Filters
+namespace FoodManager.Catalog.Domain.Filters
 {
     public sealed class FoodFiltersBuilder : PaginationFilter
     {

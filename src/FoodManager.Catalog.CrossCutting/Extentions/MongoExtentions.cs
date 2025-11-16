@@ -1,4 +1,4 @@
-﻿using FoodManager.CrossCutting.Models;
+﻿using FoodManager.Catalog.CrossCutting.Models;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -6,7 +6,7 @@ using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
-namespace FoodManager.CrossCutting.Extentions
+namespace FoodManager.Catalog.CrossCutting.Extentions
 {
     public static class MongoExtentions
     {

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using FoodManager.Application.Input.Requests;
-using FoodManager.Application.Validations;
+using FoodManager.Catalog.Application.Validations;
+using FoodManager.Catalog.Application.Input.Requests;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FoodManager.CrossCutting.Extentions
+namespace FoodManager.Catalog.CrossCutting.Extentions
 {
     public static class ValidationExtention
     {

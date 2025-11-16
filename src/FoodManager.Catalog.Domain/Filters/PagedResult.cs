@@ -1,4 +1,4 @@
-﻿namespace FoodManager.Domain.Filters
+﻿namespace FoodManager.Catalog.Domain.Filters
 {
     public class PagedResult<T>
     {

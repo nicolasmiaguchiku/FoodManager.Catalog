@@ -1,12 +1,12 @@
-﻿using FoodManager.Domain.Results;
-using LiteBus.Queries.Abstractions;
-using FoodManager.Application.Mappers;
-using FoodManager.Domain.Filters;
-using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Interfaces.Services;
-using FoodManager.Domain.Interfaces.Repositories;
+﻿using LiteBus.Queries.Abstractions;
+using FoodManager.Catalog.Application.Mappers;
+using FoodManager.Catalog.Domain.Filters;
+using FoodManager.Catalog.Application.Output.Response;
+using FoodManager.Catalog.Domain.Interfaces.Services;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Catalog.Domain.Results;
 
-namespace FoodManager.Application.Output.Queries
+namespace FoodManager.Catalog.Application.Output.Queries
 {
     public class GetFoodQueryHandler(
        IFoodRepository _repository,

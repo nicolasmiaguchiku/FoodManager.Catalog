@@ -1,7 +1,7 @@
-﻿using FoodManager.Domain.Enums;
-using FoodManager.Domain.Filters;
+﻿using FoodManager.Catalog.Domain.Enums;
+using FoodManager.Catalog.Domain.Filters;
 
-namespace FoodManager.Application.Input.Requests
+namespace FoodManager.Catalog.Application.Input.Requests
 {
     public record GetFoodRequest
     {

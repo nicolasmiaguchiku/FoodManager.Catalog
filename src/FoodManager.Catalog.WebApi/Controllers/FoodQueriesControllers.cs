@@ -1,9 +1,9 @@
 ﻿using LiteBus.Queries.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using FoodManager.Application.Output.Queries;
-using FoodManager.Application.Input.Requests;
+using FoodManager.Catalog.Application.Output.Queries;
+using FoodManager.Catalog.Application.Input.Requests;
 
-namespace FoodManager.WebApi.Controllers
+namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]

@@ -1,6 +1,6 @@
 ﻿using LiteBus.Commands.Abstractions;
 
-namespace FoodManager.Application.Input.Handlers.Commands
+namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
     public sealed class UploadImageFoodCommandHandler : ICommandHandler<UploadImageFoodCommand, string>
     {

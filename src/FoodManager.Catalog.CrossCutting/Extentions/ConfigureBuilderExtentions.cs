@@ -1,8 +1,8 @@
-﻿using FoodManager.CrossCutting.Models;
+﻿using FoodManager.Catalog.CrossCutting.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace FoodManager.CrossCutting.Extentions
+namespace FoodManager.Catalog.CrossCutting.Extentions
 {
     public static class ConfigureBuilderExtentions
     {

@@ -1,9 +1,9 @@
-﻿using FoodManager.Application.Input.Handlers.Commands;
-using FoodManager.Application.Input.Requests;
+﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Catalog.Application.Input.Requests;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodManager.WebApi.Controllers
+namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]

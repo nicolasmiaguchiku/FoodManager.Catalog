@@ -1,6 +1,6 @@
-﻿using FoodManager.Domain.Enums;
+﻿using FoodManager.Catalog.Domain.Enums;
 
-namespace FoodManager.Domain.Entities
+namespace FoodManager.Catalog.Domain.Entities
 {
     public class FoodEntity
     {

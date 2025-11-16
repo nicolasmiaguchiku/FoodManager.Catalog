@@ -1,12 +1,12 @@
-﻿using FoodManager.Domain.Entities;
-using FoodManager.Domain.Filters;
-using FoodManager.Domain.Interfaces.Repositories;
-using FoodManager.Infrastructure.Stages;
+﻿using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Filters;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Infrastructure.Stages;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
-namespace FoodManager.Infrastructure.Persistence.Repositories
+namespace FoodManager.Catalog.Infrastructure.Persistence.Repositories
 {
     public class FoodRepository(IMongoDatabase mongoDb) : BaseRepository<FoodEntity>(mongoDb, "Foods"), IFoodRepository
     {

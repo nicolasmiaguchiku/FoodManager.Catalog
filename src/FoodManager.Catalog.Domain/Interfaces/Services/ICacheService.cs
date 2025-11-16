@@ -1,4 +1,4 @@
-﻿namespace FoodManager.Domain.Interfaces.Services
+﻿namespace FoodManager.Catalog.Domain.Interfaces.Services
 {
     public interface ICacheService
     {

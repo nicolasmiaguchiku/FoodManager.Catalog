@@ -1,4 +1,4 @@
-﻿namespace FoodManager.CrossCutting.Models
+﻿namespace FoodManager.Catalog.CrossCutting.Models
 {
     public sealed record MongoSettings
     {

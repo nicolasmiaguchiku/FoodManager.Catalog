@@ -10,18 +10,18 @@ namespace UnitTests.ArchTests
         public void DomainLayerShouldNotDependOtherProjects()
         {
             //Arrange
-            var assembly = Assembly.Load("FoodManager.Domain");
+            var assembly = Assembly.Load("FoodManager.Catalog.Domain");
 
             //Act
             var result = Types.InAssembly(assembly)
                 .Should()
-                .NotHaveDependencyOn("FoodManager.Application")
+                .NotHaveDependencyOn("FoodManager.Catalog.Application")
                 .And()
-                .NotHaveDependencyOn("FoodManager.CrossCutting")
+                .NotHaveDependencyOn("FoodManager.Catalog.CrossCutting")
                 .And()
-                .NotHaveDependencyOn("FoodManager.Infrastructure")
+                .NotHaveDependencyOn("FoodManager.Catalog.Infrastructure")
                 .And()
-                .NotHaveDependencyOn("FoodManager.WebApi")
+                .NotHaveDependencyOn("FoodManager.Catalog.WebApi")
                 .GetResult();
 
             //Assert
@@ -34,16 +34,16 @@ namespace UnitTests.ArchTests
         public void ApplicationLayerShoudNotDependCroosCuttingAndInfrastructureAndWebApi()
         {
             //Arrange
-            var assembly = Assembly.Load("FoodManager.Application");
+            var assembly = Assembly.Load("FoodManager.Catalog.Application");
 
             //Act
             var result = Types.InAssembly(assembly)
                 .Should()
-                .NotHaveDependencyOn("FoodManager.CrossCutting")
+                .NotHaveDependencyOn("FoodManager.Catalog.CrossCutting")
                 .And()
-                .NotHaveDependencyOn("FoodManager.Infrastructure")
+                .NotHaveDependencyOn("FoodManager.Catalog.Infrastructure")
                 .And()
-                .NotHaveDependencyOn("FoodManager.WebApi")
+                .NotHaveDependencyOn("FoodManager.Catalog.WebApi")
                 .GetResult();
 
 
@@ -57,12 +57,12 @@ namespace UnitTests.ArchTests
         public void CrossCuttingsLayerSoudNotDepedentToWebApi()
         {
             //Arrange
-            var assembly = Assembly.Load("FoodManager.CrossCutting");
+            var assembly = Assembly.Load("FoodManager.Catalog.CrossCutting");
 
             //Act
             var result = Types.InAssembly(assembly)
                 .Should()
-                .NotHaveDependencyOn("FoodManager.WebApi")
+                .NotHaveDependencyOn("FoodManager.Catalog.WebApi")
                 .GetResult();
 
             //Assert
@@ -75,14 +75,14 @@ namespace UnitTests.ArchTests
         public void InfrastructurelayerShoudNotToDedpendentWebApiAndCrossCutting()
         {
             //Arrange
-            var assembly = Assembly.Load("FoodManager.Infrastructure");
+            var assembly = Assembly.Load("FoodManager.Catalog.Infrastructure");
 
             //Act
             var result = Types.InAssembly(assembly)
                 .Should()
-                .NotHaveDependencyOn("FoodManager.WebApi")
+                .NotHaveDependencyOn("FoodManager.Catalog.WebApi")
                 .And()
-                .NotHaveDependencyOn("FoodManager.CrossCutting")
+                .NotHaveDependencyOn("FoodManager.Catalog.CrossCutting")
                 .GetResult();
 
             //Assert
@@ -95,12 +95,12 @@ namespace UnitTests.ArchTests
         public void WebApiLayerShouldNotToDependentDomainAndInfrastructure()
         {
             //Arrange
-            var assembly = Assembly.Load("FoodManager.WebApi");
+            var assembly = Assembly.Load("FoodManager.Catalog.WebApi");
 
             //Act
             var result = Types.InAssembly(assembly)
                 .Should()
-                .NotHaveDependencyOn("FoodManager.Infrastructure")
+                .NotHaveDependencyOn("FoodManager.Catalog.Infrastructure")
                 .GetResult();
 
             //Assert

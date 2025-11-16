@@ -2,10 +2,10 @@
 using LiteBus.Queries.Extensions.MicrosoftDependencyInjection;
 using LiteBus.Messaging.Extensions.MicrosoftDependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using FoodManager.Application.Output.Queries;
-using FoodManager.Application.Input.Handlers.Commands;
+using FoodManager.Catalog.Application.Output.Queries;
+using FoodManager.Catalog.Application.Input.Handlers.Commands;
 
-namespace FoodManager.CrossCutting.Extentions
+namespace FoodManager.Catalog.CrossCutting.Extentions
 {
     public static class LiteBusExtentions
     {

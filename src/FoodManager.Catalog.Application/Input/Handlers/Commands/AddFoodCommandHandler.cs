@@ -1,14 +1,12 @@
-﻿using FluentValidation;
-using FoodManager.Application.Mappers;
-using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Errors;
-using FoodManager.Domain.Interfaces.Repositories;
-using FoodManager.Domain.Interfaces.Services;
-using FoodManager.Domain.Results;
+﻿using FoodManager.Catalog.Application.Mappers;
+using FoodManager.Catalog.Application.Output.Response;
+using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Catalog.Catalog.Domain.Results;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Domain.Interfaces.Services;
 using LiteBus.Commands.Abstractions;
-using System.Text.Json;
 
-namespace FoodManager.Application.Input.Handlers.Commands
+namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
     public sealed class AddFoodCommandHandler(IFoodRepository _repository, ICacheService _cache) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
     {

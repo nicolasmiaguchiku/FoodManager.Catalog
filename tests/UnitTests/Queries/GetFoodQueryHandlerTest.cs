@@ -1,11 +1,11 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using FoodManager.Application.Output.Queries;
-using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Entities;
-using FoodManager.Domain.Filters;
-using FoodManager.Domain.Interfaces.Repositories;
-using FoodManager.Domain.Interfaces.Services;
+using FoodManager.Catalog.Application.Output.Queries;
+using FoodManager.Catalog.Application.Output.Response;
+using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Filters;
+using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Catalog.Domain.Interfaces.Services;
 using Moq;
 
 namespace UnitTests.Queries

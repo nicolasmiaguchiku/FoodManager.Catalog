@@ -1,9 +1,9 @@
-﻿using FoodManager.Application.Input.Requests;
-using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Entities;
-using FoodManager.Domain.Filters;
+﻿using FoodManager.Catalog.Application.Output.Response;
+using FoodManager.Catalog.Application.Input.Requests;
+using FoodManager.Catalog.Domain.Entities;
+using FoodManager.Catalog.Domain.Filters;
 
-namespace FoodManager.Application.Mappers
+namespace FoodManager.Catalog.Application.Mappers
 {
     public static class FoodMapper
     {

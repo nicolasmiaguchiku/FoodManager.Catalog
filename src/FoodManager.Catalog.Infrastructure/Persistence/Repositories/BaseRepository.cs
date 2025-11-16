@@ -1,8 +1,8 @@
-﻿using FoodManager.Domain.Interfaces.Repositories;
+﻿using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using MongoDB.Driver;
 using System.Linq.Expressions;
 
-namespace FoodManager.Infrastructure.Persistence.Repositories
+namespace FoodManager.Catalog.Infrastructure.Persistence.Repositories
 {
     public class BaseRepository<TEntity>(IMongoDatabase mongoDb, string collectionName) : IBaseRepository<TEntity> where TEntity : class
     {

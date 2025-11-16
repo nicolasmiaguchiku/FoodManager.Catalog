@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
-using FoodManager.Application.Input.Handlers.Commands;
-using FoodManager.Application.Input.Requests;
+using FoodManager.Catalog.Application.Input.Requests;
 
-namespace FoodManager.Application.Validations
+namespace FoodManager.Catalog.Application.Validations
 {
     public class AddFoodValidator : AbstractValidator<AddFoodRequest>
     {
