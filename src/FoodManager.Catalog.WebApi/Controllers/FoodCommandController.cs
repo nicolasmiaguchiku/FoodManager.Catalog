@@ -1,6 +1,9 @@
-﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
+﻿using FoodManager.Catalog.Application.Dtos;
+using FoodManager.Catalog.Application.Input.Handlers.Commands;
 using FoodManager.Catalog.Application.Input.Requests;
+using FoodManager.Catalog.Domain.Entities;
 using LiteBus.Commands.Abstractions;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodManager.Catalog.WebApi.Controllers
@@ -10,7 +13,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
     public class FoodCommandController(ICommandMediator commandMediator) : ControllerBase
     {
         /// <summary>
-        /// Add a new food to the platform.
+        ///     Add a new food to the platform.
         /// </summary>
         /// <returns>A status code related to the operation.</returns>
         [HttpPost]
@@ -30,7 +33,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
         }
 
         /// <summary>
-        /// Delete a food based on id previosly informed.
+        ///     Delete a food based on id previosly informed.
         /// </summary>
         /// <returns>A status code related to the operation.</returns>
         [HttpDelete("{id:guid}")]
@@ -41,6 +44,30 @@ namespace FoodManager.Catalog.WebApi.Controllers
         {
             await commandMediator.SendAsync(new DeleteFoodCommand(id), cancellationToken);
             return NoContent();
+        }
+
+        /// <summary>
+        ///     Update a food based on id previosly informed.
+        /// </summary>
+        /// <returns> a status code related to the operation</returns>
+        [HttpPatch("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateFoodAsync(Guid id, [FromBody] JsonPatchDocument<FoodDto> food, CancellationToken cancellationToken)
+        {
+            var updateFoodRequest = new UpdateFoodRequest(id)
+            {
+                FoodPatchDocument = food
+            };
+
+            var result = await commandMediator.SendAsync(new UpdateFoodCommand(updateFoodRequest), cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                return NoContent();
+            }
+            return BadRequest(result.Error);
         }
     }
 }

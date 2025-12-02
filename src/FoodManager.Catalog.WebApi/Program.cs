@@ -19,7 +19,8 @@ builder.Services
     .AddValidators()
     .ConfigureLiteBus()
     .AddOpenApi("v1")
-    .AddControllers();
+    .AddControllers()
+    .AddNewtonsoftJson();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Host.UseSerilog(enviroment!, applicationSettings.MltSettings.SeqUrl!);

@@ -1,5 +1,6 @@
 ﻿using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
+using System.Linq.Expressions;
 
 namespace FoodManager.Catalog.Domain.Interfaces.Repositories;
 

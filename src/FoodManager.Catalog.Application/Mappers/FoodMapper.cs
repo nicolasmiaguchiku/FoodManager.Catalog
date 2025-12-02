@@ -2,6 +2,7 @@
 using FoodManager.Catalog.Application.Input.Requests;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
+using FoodManager.Catalog.Application.Dtos;
 
 namespace FoodManager.Catalog.Application.Mappers
 {
@@ -56,6 +57,18 @@ namespace FoodManager.Catalog.Application.Mappers
                 Results = foods.Select(x => x),
                 TotalPages = pageFilter.Page,
                 TotalResults = foods.Count()
+            };
+        }
+
+        public static FoodDto ToFoodDto(this FoodEntity entity)
+        {
+            return new FoodDto
+            {
+                Name = entity.Name,
+                Price = entity.Price,
+                Description = entity.Description,
+                Assessment = entity.Assessment,
+                Category = entity.Category
             };
         }
     }

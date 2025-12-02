@@ -2,13 +2,14 @@
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Infrastructure.Stages;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace FoodManager.Catalog.Infrastructure.Persistence.Repositories
 {
-    public class FoodRepository(IMongoDatabase mongoDb) : BaseRepository<FoodEntity>(mongoDb, "Foods"), IFoodRepository
+    public class FoodRepository(IMongoDatabase mongoDb, ILogger<FoodRepository> logger) : BaseRepository<FoodEntity>(mongoDb, "Foods", logger), IFoodRepository
     {
         private readonly IMongoCollection<FoodEntity> _collection = mongoDb.GetCollection<FoodEntity>("Foods");
 
@@ -31,7 +32,7 @@ namespace FoodManager.Catalog.Infrastructure.Persistence.Repositories
             return new PagedResult<FoodEntity>
             {
                 PageSize = filters.PageSize,
-                Results =  foods,
+                Results = foods,
                 TotalResults = foods.Count
             };
         }
