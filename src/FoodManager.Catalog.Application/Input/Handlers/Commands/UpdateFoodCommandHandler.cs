@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
-using FoodManager.Catalog.Application.Dtos;
 using FoodManager.Catalog.Application.Mappers;
 using Mattioli.Configurations.Models;
-using FoodManager.Catalog.Domain.Errors;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Logging;
+using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Http.Catalog.Errors;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {

@@ -1,7 +1,6 @@
-﻿using FoodManager.Catalog.Application.Dtos;
-using FoodManager.Catalog.Application.Input.Handlers.Commands;
-using FoodManager.Catalog.Application.Input.Requests;
-using FoodManager.Catalog.Domain.Entities;
+﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -42,8 +41,15 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteFoodAsync(Guid id, CancellationToken cancellationToken)
         {
-            await commandMediator.SendAsync(new DeleteFoodCommand(id), cancellationToken);
-            return NoContent();
+            var result = await commandMediator.SendAsync(new DeleteFoodCommand(id), cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                return NoContent();
+
+            }
+
+            return BadRequest(result.Error);
         }
 
         /// <summary>

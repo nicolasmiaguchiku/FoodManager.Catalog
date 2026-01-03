@@ -1,6 +1,5 @@
 using FoodManager.Catalog.CrossCutting.Extentions;
 using Mattioli.Configurations.Extensions.FluentValidations;
-using FoodManager.Catalog.CrossCutting.Middleware;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using FoodManager.Catalog.Application.Dtos;
+using FoodManager.Internal.Shared.Dtos;
 
 namespace FoodManager.Catalog.Application.Validations
 {

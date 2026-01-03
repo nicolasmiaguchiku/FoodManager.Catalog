@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using FoodManager.Catalog.Application.Input.Requests;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
 
 namespace FoodManager.Catalog.Application.Validations
 {

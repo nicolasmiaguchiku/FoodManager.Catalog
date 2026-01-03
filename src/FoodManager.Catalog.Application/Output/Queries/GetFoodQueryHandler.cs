@@ -1,5 +1,4 @@
 ﻿using FoodManager.Catalog.Application.Mappers;
-using FoodManager.Catalog.Application.Output.Response;
 using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
@@ -7,6 +6,7 @@ using FoodManager.Catalog.Domain.Interfaces.Services;
 using LiteBus.Queries.Abstractions;
 using Microsoft.Extensions.Logging;
 using Mattioli.Configurations.Http;
+using FoodManager.Internal.Shared.Http.Catalog.Responses;
 
 namespace FoodManager.Catalog.Application.Output.Queries
 {

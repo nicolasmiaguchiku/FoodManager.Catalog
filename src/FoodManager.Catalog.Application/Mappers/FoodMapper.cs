@@ -1,9 +1,8 @@
-﻿using FoodManager.Catalog.Application.Output.Response;
-using FoodManager.Catalog.Application.Input.Requests;
-using FoodManager.Catalog.Domain.Entities;
-using FoodManager.Catalog.Domain.Filters;
-using FoodManager.Catalog.Application.Dtos;
+﻿using FoodManager.Catalog.Domain.Entities;
 using Mattioli.Configurations.Http;
+using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
+using FoodManager.Internal.Shared.Http.Catalog.Responses;
 
 namespace FoodManager.Catalog.Application.Mappers
 {

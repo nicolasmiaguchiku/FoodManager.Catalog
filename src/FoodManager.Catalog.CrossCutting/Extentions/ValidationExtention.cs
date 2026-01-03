@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using FoodManager.Catalog.Application.Dtos;
-using FoodManager.Catalog.Application.Input.Requests;
 using FoodManager.Catalog.Application.Validations;
+using FoodManager.Internal.Shared.Dtos;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.DependencyInjection;
 

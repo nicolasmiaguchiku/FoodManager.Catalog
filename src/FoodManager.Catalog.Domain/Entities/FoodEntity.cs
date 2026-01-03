@@ -1,4 +1,4 @@
-﻿using FoodManager.Catalog.Domain.Enums;
+﻿using FoodManager.Internal.Shared.Enums;
 
 namespace FoodManager.Catalog.Domain.Entities
 {
@@ -34,7 +34,6 @@ namespace FoodManager.Catalog.Domain.Entities
             Description = description;
             return this;
         }
-
         public FoodEntity SetAssessment(int assessment)
         {
             Assessment = assessment;

@@ -1,10 +1,10 @@
 ﻿using FoodManager.Catalog.Application.Mappers;
-using FoodManager.Catalog.Application.Output.Response;
 using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Domain.Interfaces.Services;
 using LiteBus.Commands.Abstractions;
 using Microsoft.Extensions.Logging;
+using FoodManager.Internal.Shared.Http.Catalog.Responses;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
