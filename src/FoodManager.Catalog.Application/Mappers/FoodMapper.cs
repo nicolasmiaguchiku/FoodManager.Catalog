@@ -3,12 +3,13 @@ using Mattioli.Configurations.Http;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
+using FoodManager.Internal.Shared.Http.Auth.Models;
 
 namespace FoodManager.Catalog.Application.Mappers
 {
     public static class FoodMapper
     {
-        public static FoodEntity ToEntity(this AddFoodRequest food)
+        public static FoodEntity ToEntity(this AddFoodRequest food, Tenant tenant)
         {
             return new FoodEntity
             {
@@ -16,6 +17,7 @@ namespace FoodManager.Catalog.Application.Mappers
                 Name = food.Name,
                 Price = food.Price,
                 Description = food.Description,
+                Tenant = tenant.Name,
                 Assessment = food.Assessment,
                 Category = food.Category,
             };

@@ -8,6 +8,7 @@ namespace FoodManager.Catalog.Domain.Entities
         public string? Name { get; set; }
         public decimal Price { get; set; }
         public string? Description { get; set; }
+        public string Tenant { get; set; } = string.Empty;
         public int Assessment { get; set; }
         public Category Category { get; set; }
 
@@ -46,6 +47,12 @@ namespace FoodManager.Catalog.Domain.Entities
             return this;
         }
 
+        public FoodEntity SetTenant(string tenant)
+        {
+            Tenant = tenant;
+            return this;
+        }
+
         public Builder ToBuilder()
         {
             return new Builder
@@ -54,7 +61,8 @@ namespace FoodManager.Catalog.Domain.Entities
                 Price = Price,
                 Description = Description,
                 Assessment = Assessment,
-                Category = Category
+                Category = Category,
+                Tenant = Tenant
             };
         }
 
@@ -64,6 +72,7 @@ namespace FoodManager.Catalog.Domain.Entities
             public string? Name { get; set; }
             public decimal Price { get; set; }
             public string? Description { get; set; }
+            public string? Tenant { get; set; }
             public int Assessment { get; set; }
             public Category Category { get; set; }
 
@@ -73,6 +82,7 @@ namespace FoodManager.Catalog.Domain.Entities
             public Builder SetName(string name) { Name = name; return this; }
             public Builder SetPrice(decimal price) { Price = price; return this; }
             public Builder SetDescription(string description) { Description = description; return this; }
+            public Builder SetTenant(string tenant) { Tenant = tenant; return this; }
             public Builder SetAssessment(int assesment) { Assessment = assesment; return this; }
             public Builder SetCategory(Category category) { Category = category; return this; }
 
@@ -85,7 +95,8 @@ namespace FoodManager.Catalog.Domain.Entities
                     Price = Price,
                     Description = Description,
                     Assessment = Assessment,
-                    Category = Category
+                    Category = Category,
+                    Tenant = Tenant ?? string.Empty
                 };
             }
         }

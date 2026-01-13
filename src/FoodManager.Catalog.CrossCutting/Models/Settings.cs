@@ -1,4 +1,6 @@
-﻿namespace FoodManager.Catalog.CrossCutting.Models
+﻿using FoodManager.Internal.Shared.Http.Auth.Models;
+
+namespace FoodManager.Catalog.CrossCutting.Models
 {
     public interface ISettings
     {

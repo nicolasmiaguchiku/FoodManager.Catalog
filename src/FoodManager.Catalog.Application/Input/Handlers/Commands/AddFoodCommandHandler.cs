@@ -5,14 +5,20 @@ using FoodManager.Catalog.Domain.Interfaces.Services;
 using LiteBus.Commands.Abstractions;
 using Microsoft.Extensions.Logging;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
+using FoodManager.Internal.Shared.Services;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
-    public sealed class AddFoodCommandHandler(IFoodRepository _repository, ICacheService _cache, ILogger<AddFoodCommandHandler> _logger) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
+    public sealed class AddFoodCommandHandler(IFoodRepository _repository, 
+        ICacheService _cache, 
+        ILogger<AddFoodCommandHandler> _logger,
+        ITenantProvider tenantProvider) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
     {
         public async Task<Result<GetFoodResponse>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {
-            var result = request.FoodRequest.ToEntity();
+            var tenant = tenantProvider.GetTenant();
+
+            var result = request.FoodRequest.ToEntity(tenant);
 
             await _repository.AddAsync(result, cancellationToken);
 

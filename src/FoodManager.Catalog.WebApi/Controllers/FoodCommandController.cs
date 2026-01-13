@@ -1,7 +1,9 @@
 ﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Internal.Shared.Attributes;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using LiteBus.Commands.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +11,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]
+    [Authorize]
     public class FoodCommandController(ICommandMediator commandMediator) : ControllerBase
     {
         /// <summary>
@@ -19,6 +22,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [RequiredRole("AddFood")]
         public async Task<IActionResult> AddFoodAsync([FromBody] AddFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new AddFoodCommand(request), cancellationToken);

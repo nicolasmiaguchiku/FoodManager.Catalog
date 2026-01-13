@@ -1,4 +1,5 @@
 using FoodManager.Catalog.CrossCutting.Extentions;
+using FoodManager.Internal.Shared.Extensions;
 using Mattioli.Configurations.Extensions.FluentValidations;
 using Scalar.AspNetCore;
 
@@ -16,8 +17,10 @@ var applicationSettings = builder.Configuration.GetApplicationSettings(builder.E
 builder.Services
     .AddMemoryCache()
     .AddMongo(applicationSettings.MongoSettings)
-    .AddServices()
+    .AddApiClients(applicationSettings.KeycloakSettings)
+    .AddRepositories()
     .ConfigureValidationErrorResponses()
+    .AddApiAuthentication(applicationSettings.KeycloakSettings.Realm)
     .ConfigureLiteBus()
     .AddOpenApi("v1")
     .AddValidators()
@@ -33,8 +36,9 @@ app.MapOpenApi();
 app.MapScalarApiReference(options => options.Servers = []);
 
 app.UseRequestContextLogging()
-    .UseHttpsRedirection()
-    .UseAuthorization();
+   .UseHttpsRedirection()
+   .UseAuthentication()
+   .UseAuthorization();
 
 app.MapControllers();
 
