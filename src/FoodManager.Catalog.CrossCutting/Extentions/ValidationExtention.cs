@@ -2,6 +2,7 @@
 using FluentValidation.AspNetCore;
 using FoodManager.Catalog.Application.Validations;
 using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +19,8 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
 
             services.AddScoped<IValidator<JsonPatchError>, JsonPatchValidator>();
             services.AddScoped<IValidator<FoodDto>, FoodDtoValidator>();
-
+            services.AddScoped<IValidator<AddFoodRequest>, AddFoodValidator>();
+            
             return services;
         }
     }
