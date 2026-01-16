@@ -5,31 +5,27 @@ namespace FoodManager.Catalog.Application.Validations
 {
     public class AddFoodValidator : AbstractValidator<AddFoodRequest>
     {
-        public AddFoodValidator() 
+        public AddFoodValidator()
         {
             RuleFor(x => x.Name)
                 .NotNull()
-                .WithMessage("O nome da comida não pode ser nulo.")
+                .WithMessage("The name of the food cannot be null.")
                 .NotEmpty()
-                .WithMessage("O nome da comida é obrigatório.")
-                .MinimumLength(10)
-                .WithMessage("O nome da comida deve ter no minimo 10 caracteres")
-                .MaximumLength(100)
-                .WithMessage("O nome da comida deve ter no maximo 100 caracteres");
+                .WithMessage("The name of the food is required.");
 
             RuleFor(x => x.Price)
                 .NotNull()
-                .WithMessage("O valor da comida não pode ser nulo")
+                .WithMessage("The value of food cannot be zero.")
                 .NotEmpty()
-                .WithMessage("O valor da comida é obrigatório")
+                .WithMessage("The cost of the food is required.")
                 .GreaterThan(0)
-                .WithMessage("O valor da comida deve ser maior que 0");
+                .WithMessage("The value of the food must be greater than 0.");
 
             RuleFor(x => x.Category)
                 .NotNull()
-                .WithMessage("A comida deve ter uma categoria valida.")
+                .WithMessage("The food must have a valid category.")
                 .NotEmpty()
-                .WithMessage("A comida é obrigatório ter uma catergoria.");
+                .WithMessage("The food must have a category.");
         }
     }
 }

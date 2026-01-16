@@ -15,9 +15,9 @@ namespace FoodManager.Catalog.WebApi.Controllers
     public class FoodCommandController(ICommandMediator commandMediator) : ControllerBase
     {
         /// <summary>
-        ///     Add a new food to the platform.
+        ///     Register a new food
         /// </summary>
-        /// <returns>A status code related to the operation.</returns>
+        /// <returns>The details of the newly created food item or a validation error.</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -36,9 +36,9 @@ namespace FoodManager.Catalog.WebApi.Controllers
         }
 
         /// <summary>
-        ///     Delete a food based on id previosly informed.
+        ///     Excludes a specific food item based on the provided identifier.
         /// </summary>
-        /// <returns>A status code related to the operation.</returns>
+        /// <returns> Returns 204 (No Content) on successful validation or a validation error.</returns>
         [HttpDelete("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -57,9 +57,9 @@ namespace FoodManager.Catalog.WebApi.Controllers
         }
 
         /// <summary>
-        ///     Update a food based on id previosly informed.
+        ///     Partially updates the data for an existing food item.
         /// </summary>
-        /// <returns> a status code related to the operation</returns>
+        /// <returns>The request must follow the JSON Patch standard (RFC 6902).</returns>
         [HttpPatch("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

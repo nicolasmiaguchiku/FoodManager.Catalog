@@ -1,5 +1,4 @@
 ﻿using Mattioli.Configurations.Models;
-using FoodManager.Catalog.Domain.Filters;
 using LiteBus.Queries.Abstractions;
 using Mattioli.Configurations.Http;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
