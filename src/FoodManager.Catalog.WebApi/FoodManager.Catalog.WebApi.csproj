@@ -8,10 +8,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Scalar.AspNetCore" Version="2.8.5" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\FoodManager.Catalog.CrossCutting\FoodManager.Catalog.CrossCutting.csproj" />
 	</ItemGroup>
 

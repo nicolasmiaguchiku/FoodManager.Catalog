@@ -8,29 +8,31 @@ namespace FoodManager.Catalog.Application.Validations
         public FoodDtoValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty()
-                .WithMessage("O nome do alimento é obrigatório.")
-                .MinimumLength(3)
-                .WithMessage("O nome deve ter pelo menos 3 caracteres.")
-                .MaximumLength(100)
-                .WithMessage("O nome deve ter no máximo 100 caracteres.");
+                 .NotNull()
+                 .WithMessage("The name of the food cannot be null.")
+                 .NotEmpty()
+                 .WithMessage("The name of the food is required.");
 
             RuleFor(x => x.Price)
-                .GreaterThan(0)
-                .WithMessage("O preço deve ser maior que zero.");
+                  .NotNull()
+                  .WithMessage("The value of food cannot be zero.")
+                  .NotEmpty()
+                  .WithMessage("The cost of the food is required.")
+                  .GreaterThan(0)
+                  .WithMessage("The value of the food must be greater than 0.");
 
             RuleFor(x => x.Assessment)
                 .InclusiveBetween(1, 5)
-                .WithMessage("A avaliação deve estar entre 1 e 5.");
+                .WithMessage("The rating should be between 1 and 5.");
 
             RuleFor(x => x.Description)
                 .MaximumLength(150)
-                .WithMessage("A descrição deve ter no máximo 150 caracteres.")
+                .WithMessage("The description should be a maximum of 150 characters.")
                 .When(x => !string.IsNullOrWhiteSpace(x.Description));
 
             RuleFor(x => x.Category)
                 .IsInEnum()
-                .WithMessage("A categoria informada é inválida.");
+                .WithMessage("The category entered is invalid.");
         }
     }
 }

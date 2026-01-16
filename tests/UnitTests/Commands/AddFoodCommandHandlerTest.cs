@@ -4,6 +4,7 @@ using FoodManager.Catalog.Application.Input.Handlers.Commands;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Domain.Interfaces.Services;
+using FoodManager.Internal.Shared.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
 
@@ -14,12 +15,17 @@ namespace UnitTests.Commands
         private readonly Mock<IFoodRepository> _foodReposiroryMock = new();
         private readonly Mock<ICacheService> _cacheMock = new();
         private readonly Mock<ILogger<AddFoodCommandHandler>> _loggerServiceMock = new();
+        private readonly Mock<ITenantProvider> _tenantProviderMock = new();
         private readonly Fixture _fixture = new();
         public readonly AddFoodCommandHandler _handler;
 
         public AddFoodCommandHandlerTest()
         {
-            _handler = new(_foodReposiroryMock.Object, _cacheMock.Object, _loggerServiceMock.Object);
+            _handler = new(
+                _foodReposiroryMock.Object,
+                _cacheMock.Object,
+                _loggerServiceMock.Object,
+                _tenantProviderMock.Object);
         }
 
         [Fact]

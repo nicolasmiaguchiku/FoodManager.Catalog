@@ -22,7 +22,7 @@ builder.Services
     .ConfigureValidationErrorResponses()
     .AddApiAuthentication(applicationSettings.KeycloakSettings.Realm)
     .ConfigureLiteBus()
-    .AddOpenApi("v1")
+    .AddApiSpecification()
     .AddValidators()
     .AddControllers()
     .AddNewtonsoftJson();
@@ -33,7 +33,7 @@ builder.Host.UseSerilog(enviroment!, applicationSettings.MltSettings.SeqUrl!);
 var app = builder.Build();
 
 app.MapOpenApi();
-app.MapScalarApiReference(options => options.Servers = []);
+app.UseSpecification();
 
 app.UseRequestContextLogging()
    .UseHttpsRedirection()

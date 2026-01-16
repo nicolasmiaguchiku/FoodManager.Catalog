@@ -10,7 +10,7 @@ namespace FoodManager.Catalog.Application.Validations
             RuleFor(x => x.Id)
                 .NotNull()
                 .NotEmpty()
-                .WithMessage($"O campo {nameof(UpdateFoodRequest.Id)} é obrigatório.");
+                .WithMessage($"O campo {nameof(UpdateFoodRequest.Id)} é required.");
         }
     }
 }
