@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  catalog-api:
+    container_name: catalog-api
+    image: food-manager-catalog-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_CONNECTION_STRING={CONECTION_STRING}
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
