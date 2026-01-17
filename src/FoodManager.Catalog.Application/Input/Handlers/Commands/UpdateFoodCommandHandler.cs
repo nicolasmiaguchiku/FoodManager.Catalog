@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using FoodManager.Catalog.Application.Mappers;
-using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
-using LiteBus.Commands.Abstractions;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.Extensions.Logging;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Errors;
+using LiteBus.Commands.Abstractions;
+using Mattioli.Configurations.Models;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.Logging;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
@@ -22,23 +22,18 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 
             if (foodResult is null)
             {
+                _logger.LogInformation("FoodId {FoodId} Not found", foodResult!.Id);
                 return Result<bool>.Failure(FoodErrors.FoodDoesNotExist);
             }
 
-            var dto = foodResult.ToFoodDto();
+            var food = foodResult.ToFoodDto();
 
             request
                 .UpdateFoodRequest
                 .FoodPatchDocument
-                .ApplyTo(dto, error => patchValidator.ValidateAndThrow(error));
+                .ApplyTo(food, error => patchValidator.ValidateAndThrow(error));
 
-            foodResult.Name = dto.Name;
-            foodResult.Price = dto.Price;
-            foodResult.Assessment = dto.Assessment;
-            foodResult.Description = dto.Description;
-            foodResult.Category = dto.Category;
-
-            var validation = await foodDtoValidator.ValidateAsync(dto, cancellationToken);
+            var validation = await foodDtoValidator.ValidateAsync(food, cancellationToken);
 
             if (!validation.IsValid)
             {
@@ -46,11 +41,11 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
                 return Result<bool>.Failure(FoodErrors.ValueMismatch(string.Join("\n", errors)));
             }
 
-            var modified = await foodRepository.ReplaceAsync(x => x.Id == request.UpdateFoodRequest.Id, foodResult, cancellationToken);
+            var modified = await foodRepository.ReplaceAsync(x => x.Id == request.UpdateFoodRequest.Id, food.ToDomain(), cancellationToken);
 
             if (modified == 0)
             {
-                _logger.LogInformation("FoodId {FoodId} Not found", foodResult.Id);
+                _logger.LogInformation("Error update FoodId {FoodId}", foodResult.Id);
                 return Result<bool>.Failure(FoodErrors.FoodDoesNotExist);
             }
 

@@ -66,11 +66,27 @@ namespace FoodManager.Catalog.Application.Mappers
         {
             return new FoodDto
             {
+                Id = entity.Id,
                 Name = entity.Name,
                 Price = entity.Price,
+                Tenant = entity.Tenant,
                 Description = entity.Description,
                 Assessment = entity.Assessment,
-                Category = entity.Category
+                Category = entity.Category,
+            };
+        }
+
+        public static FoodEntity ToDomain(this FoodDto food)
+        {
+            return new FoodEntity
+            {
+                Id = food.Id,
+                Name = food.Name,
+                Price = food.Price,
+                Description = food.Description,
+                Tenant = food.Tenant!,
+                Assessment = food.Assessment,
+                Category = food.Category,
             };
         }
     }

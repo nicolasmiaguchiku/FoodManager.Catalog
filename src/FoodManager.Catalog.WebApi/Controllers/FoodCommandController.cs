@@ -11,7 +11,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]
-    [Authorize]
     public class FoodCommandController(ICommandMediator commandMediator) : ControllerBase
     {
         /// <summary>
@@ -22,7 +21,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("AddFood")]
+        //[RequiredRole("AddFood")]
         public async Task<IActionResult> AddFoodAsync([FromBody] AddFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new AddFoodCommand(request), cancellationToken);
