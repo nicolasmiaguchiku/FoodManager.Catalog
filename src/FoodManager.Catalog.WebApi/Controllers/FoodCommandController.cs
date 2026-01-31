@@ -1,4 +1,5 @@
 ﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
+using FoodManager.Catalog.Application.Input.Requests;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using LiteBus.Commands.Abstractions;
@@ -74,6 +75,23 @@ namespace FoodManager.Catalog.WebApi.Controllers
                 return NoContent();
             }
             return BadRequest(result.Error);
+        }
+
+        /// <summary>
+        /// Upload da imagem do food
+        /// </summary>
+        [HttpPost("{id:guid}/image")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UploadImage([FromRoute] Guid id, [FromForm] UploadImageFoodRequest request, CancellationToken cancellationToken)
+        {
+            var result = await commandMediator.SendAsync(new UploadImageFoodCommand(id, request), cancellationToken);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            return NoContent();
         }
     }
 }
