@@ -13,6 +13,7 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
         {
             services.AddScoped<IFoodRepository, FoodRepository>();
             services.AddScoped<ICacheService, MemoryCacheService>();
+            services.AddScoped<IImageStorageService, ImageStorageService>();
             services.AddSingleton<JwtSecurityTokenHandler>();
 
             return services;

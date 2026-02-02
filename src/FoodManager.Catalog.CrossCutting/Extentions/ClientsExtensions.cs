@@ -11,7 +11,7 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
         {
             services.AddHttpClient<IAuthClient, AuthClient>(client =>
             {
-                client.DefaultRequestHeaders.Add("Tenant", "smartconsig");
+                client.DefaultRequestHeaders.Add("Tenant", "FoodManager");
                 client.BaseAddress = new Uri(keycloakSettings.BaseUrl
                         .AppendPathSegment("api")
                         .AppendPathSegment("v1/"));

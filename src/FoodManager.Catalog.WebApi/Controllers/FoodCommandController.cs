@@ -1,9 +1,8 @@
 ﻿using FoodManager.Catalog.Application.Input.Handlers.Commands;
-using FoodManager.Internal.Shared.Attributes;
+using FoodManager.Catalog.Application.Input.Requests;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using LiteBus.Commands.Abstractions;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +20,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[RequiredRole("AddFood")]
         public async Task<IActionResult> AddFoodAsync([FromBody] AddFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new AddFoodCommand(request), cancellationToken);
@@ -77,6 +75,27 @@ namespace FoodManager.Catalog.WebApi.Controllers
                 return NoContent();
             }
             return BadRequest(result.Error);
+        }
+
+        /// <summary>
+        ///     Upload da imagem do food
+        /// </summary>
+        /// <returns>The request returns the image path where the upload is located.</returns>
+        [HttpPost("{id:guid}/image")]
+        [Consumes("multipart/form-data")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UploadImage([FromRoute] Guid id, [FromForm] UploadImageFoodRequest request, CancellationToken cancellationToken)
+        {
+            var result = await commandMediator.SendAsync(new UploadImageFoodCommand(id, request), cancellationToken);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result.Data);
         }
     }
 }

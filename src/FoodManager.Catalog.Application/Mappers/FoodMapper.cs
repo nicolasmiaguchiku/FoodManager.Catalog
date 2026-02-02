@@ -1,9 +1,9 @@
 ﻿using FoodManager.Catalog.Domain.Entities;
-using Mattioli.Configurations.Http;
 using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Http.Auth.Models;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
-using FoodManager.Internal.Shared.Http.Auth.Models;
+using Mattioli.Configurations.Http;
 
 namespace FoodManager.Catalog.Application.Mappers
 {
@@ -11,16 +11,15 @@ namespace FoodManager.Catalog.Application.Mappers
     {
         public static FoodEntity ToEntity(this AddFoodRequest food, Tenant tenant)
         {
-            return new FoodEntity
-            {
-                Id = Guid.NewGuid(),
-                Name = food.Name,
-                Price = food.Price,
-                Description = food.Description,
-                Tenant = tenant.Name,
-                Assessment = food.Assessment,
-                Category = food.Category,
-            };
+            return new FoodEntity.Builder()
+                .SetId(Guid.NewGuid())
+                .SetName(food.Name)
+                .SetPrice(food.Price)
+                .SetDescription(food.Description)
+                .SetTenant(tenant.Name)
+                .SetAssessment(food.Assessment)
+                .SetCategory(food.Category)
+                .Build();
         }
 
         public static GetFoodResponse ToResponse(this FoodEntity entity)
