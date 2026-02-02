@@ -12,7 +12,7 @@ namespace FoodManager.Catalog.Domain.Entities
         public string Tenant { get; set; } = string.Empty;
         public int Assessment { get; set; }
         public Category Category { get; set; }
-        public ImageFile ImageFile { get; set; } = default!;
+        public FoodImage FoodImage { get; set; } = default!;
 
         public FoodEntity SetId(Guid id)
         {
@@ -55,9 +55,9 @@ namespace FoodManager.Catalog.Domain.Entities
             return this;
         }
 
-        public FoodEntity SetImageFile(ImageFile imageFile)
+        public FoodEntity SetImageFile(FoodImage foodImage)
         {
-            ImageFile = imageFile;
+            FoodImage = foodImage;
             return this;
         }
 
@@ -71,7 +71,7 @@ namespace FoodManager.Catalog.Domain.Entities
                 Assessment = Assessment,
                 Category = Category,
                 Tenant = Tenant,
-                ImageFile = ImageFile
+                FoodImage = FoodImage
             };
         }
 
@@ -84,7 +84,7 @@ namespace FoodManager.Catalog.Domain.Entities
             public string? Tenant { get; set; }
             public int Assessment { get; set; }
             public Category Category { get; set; }
-            public ImageFile ImageFile { get; set; } = default!;
+            public FoodImage FoodImage { get; set; } = default!;
 
             public static Builder Create() => new();
 
@@ -95,7 +95,7 @@ namespace FoodManager.Catalog.Domain.Entities
             public Builder SetTenant(string tenant) { Tenant = tenant; return this; }
             public Builder SetAssessment(int assesment) { Assessment = assesment; return this; }
             public Builder SetCategory(Category category) { Category = category; return this; }
-            public Builder SetImageFile(ImageFile imageFile) { ImageFile = imageFile; return this; }
+            public Builder SetImageFile(FoodImage foodImage) { FoodImage = foodImage; return this; }
 
             public FoodEntity Build()
             {
@@ -108,7 +108,7 @@ namespace FoodManager.Catalog.Domain.Entities
                     Assessment = Assessment,
                     Category = Category,
                     Tenant = Tenant ?? string.Empty,
-                    ImageFile = ImageFile
+                    FoodImage = FoodImage
                 };
             }
         }

@@ -78,10 +78,14 @@ namespace FoodManager.Catalog.WebApi.Controllers
         }
 
         /// <summary>
-        /// Upload da imagem do food
+        ///     Upload da imagem do food
         /// </summary>
+        /// <returns>The request returns the image path where the upload is located.</returns>
         [HttpPost("{id:guid}/image")]
         [Consumes("multipart/form-data")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UploadImage([FromRoute] Guid id, [FromForm] UploadImageFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new UploadImageFoodCommand(id, request), cancellationToken);
@@ -91,7 +95,7 @@ namespace FoodManager.Catalog.WebApi.Controllers
                 return BadRequest(result.Error);
             }
 
-            return NoContent();
+            return Ok(result.Data);
         }
     }
 }
