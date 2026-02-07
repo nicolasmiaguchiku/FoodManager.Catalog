@@ -30,7 +30,8 @@ namespace FoodManager.Catalog.Application.Mappers
                 entity.Price,
                 entity.Description ?? "",
                 entity.Assessment,
-                entity.Category);
+                entity.Category,
+                entity.FoodImage?.Path ?? "");
 
             return food;
         }
