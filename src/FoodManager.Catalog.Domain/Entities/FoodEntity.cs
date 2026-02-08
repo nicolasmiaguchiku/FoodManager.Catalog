@@ -12,7 +12,7 @@ namespace FoodManager.Catalog.Domain.Entities
         public string Tenant { get; set; } = string.Empty;
         public int Assessment { get; set; }
         public Category Category { get; set; }
-        public FoodImage FoodImage { get; set; } = default!;
+        public FoodImage? FoodImage { get; set; } = default!;
 
         public FoodEntity SetId(Guid id)
         {
@@ -84,7 +84,7 @@ namespace FoodManager.Catalog.Domain.Entities
             public string? Tenant { get; set; }
             public int Assessment { get; set; }
             public Category Category { get; set; }
-            public FoodImage FoodImage { get; set; } = default!;
+            public FoodImage? FoodImage { get; set; } = default!;
 
             public static Builder Create() => new();
 

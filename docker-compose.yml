@@ -2,14 +2,26 @@ version: '3.8'
 
 services:
   catalog-api:
-    container_name: catalog-api
-    image: food-manager-catalog-api
+    image: food-manager-catalog-api:1.0.0
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: catalog-api
     ports:
-      - "5000:5000"
+      - "5000:80"
     environment:
-      - MONGO_CONNECTION_STRING={CONECTION_STRING}
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5000
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+      Settings__MongoSettings__ConnectionString: ${MONGO_CONNECTION_STRING}
+      Settings__MltSettings__SeqUrl: http://seq
+    depends_on:
+      - seq
+
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    environment:
+      ACCEPT_EULA: "Y"
+      SEQ_FIRSTRUN_ADMINPASSWORD: admin123
+    ports:
+      - "5341:80"
